@@ -1,0 +1,23 @@
+{
+  "name": "react-components-new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^20.11.20"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21",
+    "react": "^18.3.1",
+    "react-components": "workspace: *",
+    "react-dom": "^18.3.1"
+  }
+}

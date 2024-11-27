@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React, { memo, PropsWithChildren } from 'react';
 
 type BaseButtonProps = PropsWithChildren<{
   type?: 'primary' | 'dashed' | 'link' | 'default',
@@ -9,7 +9,8 @@ type MergedHTMLAttributes = React.ComponentProps<'button'>;
 
 type ButtonProps = BaseButtonProps & MergedHTMLAttributes
 
-const Button: React.FC<ButtonProps> = (props) => {
+const Button: React.FC<ButtonProps> = memo((props) => {
+  console.log('render')
   function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
     const { onClick } = props;
     onClick?.(e)
@@ -20,6 +21,6 @@ const Button: React.FC<ButtonProps> = (props) => {
       {props.children}
     </button>
   )
-}
+})
 
 export default Button

@@ -8,5 +8,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ahooks": "^3.8.1",
+    "async-validator": "^4.2.5",
+    "classnames": "^2.5.1"
+  }
 }

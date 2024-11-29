@@ -12,6 +12,10 @@
   "dependencies": {
     "ahooks": "^3.8.1",
     "async-validator": "^4.2.5",
-    "classnames": "^2.5.1"
+    "classnames": "^2.5.1",
+    "styled-components": "^6.1.13"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.6"
   }
 }

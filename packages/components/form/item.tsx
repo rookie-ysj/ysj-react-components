@@ -2,7 +2,7 @@ import React, { ChangeEvent, CSSProperties, ReactElement, ReactNode, useContext,
 import classNames from 'classnames';
 import Schema from 'async-validator';
 
-import FormContext from './FormContext';
+import FormContext from './formContext';
 
 export interface ItemProps {
   className?: string;
@@ -45,12 +45,14 @@ const Item = (props: ItemProps) => {
 
   const { onValueChange, values, validateRegister } = useContext(FormContext);
 
+  // 根据顶层state设置value
   useEffect(() => {
     if (value !== values?.[name]) {
       setValue(values?.[name]);
     }
   }, [values, values?.[name]])
 
+  // 验证
   const handleValidate = (value: any) => {
     let errorMsg = null;
     if (Array.isArray(rules) && rules.length) {
@@ -102,13 +104,13 @@ const Item = (props: ItemProps) => {
     }
   });
 
-  const cls = classNames('ant-form-item', className);
+  const cls = classNames('form-item', className);
 
   return (
     <div className={cls} style={style}>
       <div>
         {
-          label && <label>{label}</label>
+          label && <label className='form-item-label'>{label}</label>
         }
       </div>
       <div>

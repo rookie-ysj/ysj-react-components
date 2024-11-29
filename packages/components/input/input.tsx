@@ -1,10 +1,13 @@
-import { FC } from 'react';
+import { FC, HTMLInputTypeAttribute } from 'react';
 import { useControllableValue } from 'ahooks';
 
 interface BaseInputProps {
   onChange?: (value: string) => void
   defaultValue?: string
   value?: string
+  type?: HTMLInputTypeAttribute
+  disabled?: boolean
+  maxLength?: number
 }
 
 interface InputProps extends BaseInputProps {
@@ -14,7 +17,7 @@ const Input: FC<InputProps> = (props) => {
   const {
     value: propValue,
     defaultValue,
-    onChange
+    onChange,
   } = props
 
   const [value, setValue] = useControllableValue({
@@ -24,7 +27,7 @@ const Input: FC<InputProps> = (props) => {
   })
 
   return (
-    <input value={value} onChange={setValue}/>
+    <input value={value} onChange={setValue} {...props}/>
   )
 }
 

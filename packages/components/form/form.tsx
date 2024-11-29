@@ -1,6 +1,6 @@
 import { CSSProperties, FormEvent, HTMLAttributes, ReactNode, useRef, useState } from 'react';
 import FormContext from './formContext.ts';
-
+import './index.css'
 
 export interface FormProps extends HTMLAttributes<HTMLFormElement> {
   className?: string;
@@ -34,7 +34,7 @@ const Form = (props: FormProps) => {
 
     for (const [key, callbackFunc] of validatorMap.current) {
       if (typeof callbackFunc === 'function') {
-        errors.current[key] = callbackFunc
+        errors.current[key] = callbackFunc()
       }
     }
 

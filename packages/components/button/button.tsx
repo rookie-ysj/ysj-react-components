@@ -1,25 +1,35 @@
-import React, { memo, PropsWithChildren } from 'react';
-
-type BaseButtonProps = PropsWithChildren<{
-  type?: 'primary' | 'dashed' | 'link' | 'default',
-  loading?: boolean
-}>
-
-type MergedHTMLAttributes = React.ComponentProps<'button'>;
-
-type ButtonProps = BaseButtonProps & MergedHTMLAttributes
+import React, { memo } from 'react';
+import { ButtonProps } from './type';
+import { StyledButton } from './style';
 
 const Button: React.FC<ButtonProps> = memo((props) => {
-  console.log('render')
+  const {
+    loading,
+    className,
+    style,
+    htmlType,
+    type,
+    round,
+  } = props
+
   function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
     const { onClick } = props;
     onClick?.(e)
   }
 
   return (
-    <button onClick={handleClick} disabled={props.loading} className={props.className} style={props.style}>
+    <StyledButton
+      onClick={handleClick}
+      className={className}
+      style={style}
+      type={htmlType}
+      disabled={loading}
+      $type={type ?? 'default'}
+      $disabled={loading ?? false}
+      $round={round ?? false}
+    >
       {props.children}
-    </button>
+    </StyledButton>
   )
 })
 

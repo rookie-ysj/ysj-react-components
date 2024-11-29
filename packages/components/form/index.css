@@ -1,0 +1,7 @@
+.form-item {
+    display: flex;
+
+    .form-item-label {
+        margin-right: 4px;
+    }
+}
